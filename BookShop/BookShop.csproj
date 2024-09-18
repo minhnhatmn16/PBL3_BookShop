@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E431F511-EF46-436F-A2D8-87217ABCAF82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BookShop</RootNamespace>
+    <AssemblyName>BookShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\Account_BLL.cs" />
+    <Compile Include="BLL\BookInfor_BLL.cs" />
+    <Compile Include="BLL\Category_BLL.cs" />
+    <Compile Include="BLL\CSDL_OOP.cs" />
+    <Compile Include="BLL\Customer_BLL.cs" />
+    <Compile Include="BLL\ImportBook_BLL.cs" />
+    <Compile Include="BLL\ImportInvoice_BLL.cs" />
+    <Compile Include="BLL\Role_BLL.cs" />
+    <Compile Include="BLL\SaledBook_BLL.cs" />
+    <Compile Include="BLL\SaledInvoice_BLL.cs" />
+    <Compile Include="BLL\SecurePasswordHasher.cs" />
+    <Compile Include="BLL\Supplier_BLL.cs" />
+    <Compile Include="DAL\Customer_DAL.cs" />
+    <Compile Include="DAL\SaledBook_DAL.cs" />
+    <Compile Include="DAL\SaledInvoice_DAL.cs" />
+    <Compile Include="DataSet_Import.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Import.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet_Sale.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Sale.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\RevenueBook.cs" />
+    <Compile Include="DTO\SaledBook.cs" />
+    <Compile Include="DTO\SaledInvoice.cs" />
+    <Compile Include="DTO\StatusAccount.cs" />
+    <Compile Include="GUI\Form_AccountInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_AccountInformation.Designer.cs">
+      <DependentUpon>Form_AccountInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Account_DAL.cs" />
+    <Compile Include="DAL\ImportBook_DAL.cs" />
+    <Compile Include="DAL\ImportInvoice_DAL.cs" />
+    <Compile Include="DAL\Role_DAL.cs" />
+    <Compile Include="DAL\Supplier_DAL.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\ImportInvoice.cs" />
+    <Compile Include="DTO\Role.cs" />
+    <Compile Include="DTO\Supplier.cs" />
+    <Compile Include="DTO\ImportBook.cs" />
+    <Compile Include="GUI\Form_AddBookPic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_AddBookPic.Designer.cs">
+      <DependentUpon>Form_AddBookPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_BookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_BookDetail.Designer.cs">
+      <DependentUpon>Form_BookDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_FilterCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_FilterCategory.Designer.cs">
+      <DependentUpon>Form_FilterCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_FilterPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_FilterPrice.Designer.cs">
+      <DependentUpon>Form_FilterPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_FilterQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_FilterQuantity.Designer.cs">
+      <DependentUpon>Form_FilterQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_FilterTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_FilterTime.Designer.cs">
+      <DependentUpon>Form_FilterTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_ManageCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_ManageCategory.Designer.cs">
+      <DependentUpon>Form_ManageCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_AddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_AddAccount.Designer.cs">
+      <DependentUpon>Form_AddAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_Admin.Designer.cs">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_DetailedAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_DetailedAccount.Designer.cs">
+      <DependentUpon>Form_DetailedAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_ManageAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_ManageAccount.Designer.cs">
+      <DependentUpon>Form_ManageAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_ManageRevenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ADMIN\Form_ManageRevenue.Designer.cs">
+      <DependentUpon>Form_ManageRevenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_AddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_AddCustomer.Designer.cs">
+      <DependentUpon>Form_AddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_AddSaledBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_AddSaledBook.Designer.cs">
+      <DependentUpon>Form_AddSaledBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_CreateSaledInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_CreateSaledInvoice.Designer.cs">
+      <DependentUpon>Form_CreateSaledInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_Customer.Designer.cs">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_DetailedSaledInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_DetailedSaledInvoice.Designer.cs">
+      <DependentUpon>Form_DetailedSaledInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_FindBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_FindBook.Designer.cs">
+      <DependentUpon>Form_FindBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_ManageCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_ManageCustomer.Designer.cs">
+      <DependentUpon>Form_ManageCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_MainSalePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_MainSalePerson.Designer.cs">
+      <DependentUpon>Form_MainSalePerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_ViewDetailedBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_ViewDetailedBook.Designer.cs">
+      <DependentUpon>Form_ViewDetailedBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_ViewSaleInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_SALE\Form_ViewSaleInvoice.Designer.cs">
+      <DependentUpon>Form_ViewSaleInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ST\Form_AddImportBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ST\Form_AddImportBook.Designer.cs">
+      <DependentUpon>Form_AddImportBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ST\Form_DetailImportInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ST\Form_DetailImportInvoice.Designer.cs">
+      <DependentUpon>Form_DetailImportInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ST\Form_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ST\Form_Supplier.Designer.cs">
+      <DependentUpon>Form_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InHoaDon\Report_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InHoaDon\Report_Import.Designer.cs">
+      <DependentUpon>Report_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InHoaDon\Report_Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InHoaDon\Report_Sale.Designer.cs">
+      <DependentUpon>Report_Sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old_GUI\Form_BookDetail_old02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old_GUI\Form_BookDetail_old02.Designer.cs">
+      <DependentUpon>Form_BookDetail_old02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old_GUI\Form_BookDetail_old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old_GUI\Form_BookDetail_old.Designer.cs">
+      <DependentUpon>Form_BookDetail_old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_ManageBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_ManageBook.Designer.cs">
+      <DependentUpon>Form_ManageBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_ChangePassword.Designer.cs">
+      <DependentUpon>Form_ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ST\Form_CreateImportInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ST\Form_CreateImportInvoice.Designer.cs">
+      <DependentUpon>Form_CreateImportInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old_GUI\Form_AddBook_old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old_GUI\Form_AddBook_old.Designer.cs">
+      <DependentUpon>Form_AddBook_old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ST\Form_ViewImportInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ST\Form_ViewImportInvoice.Designer.cs">
+      <DependentUpon>Form_ViewImportInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DB_Helper.cs" />
+    <Compile Include="DAL\BookInfor_DAL.cs" />
+    <Compile Include="DAL\Login_DAL.cs" />
+    <Compile Include="DAL\Category_DAL.cs" />
+    <Compile Include="DTO\Category.cs" />
+    <Compile Include="DTO\Gender.cs" />
+    <Compile Include="DTO\BookInfor.cs" />
+    <Compile Include="Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Connect.cs" />
+    <Compile Include="GUI_ST\Form_MainStoreKeeper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ST\Form_MainStoreKeeper.Designer.cs">
+      <DependentUpon>Form_MainStoreKeeper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="GUI\Form_AccountInformation.resx">
+      <DependentUpon>Form_AccountInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_AddBookPic.resx">
+      <DependentUpon>Form_AddBookPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_BookDetail.resx">
+      <DependentUpon>Form_BookDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_FilterCategory.resx">
+      <DependentUpon>Form_FilterCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_FilterPrice.resx">
+      <DependentUpon>Form_FilterPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_FilterQuantity.resx">
+      <DependentUpon>Form_FilterQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_FilterTime.resx">
+      <DependentUpon>Form_FilterTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_ManageCategory.resx">
+      <DependentUpon>Form_ManageCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ADMIN\Form_AddAccount.resx">
+      <DependentUpon>Form_AddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ADMIN\Form_Admin.resx">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ADMIN\Form_DetailedAccount.resx">
+      <DependentUpon>Form_DetailedAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ADMIN\Form_ManageAccount.resx">
+      <DependentUpon>Form_ManageAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ADMIN\Form_ManageRevenue.resx">
+      <DependentUpon>Form_ManageRevenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_AddCustomer.resx">
+      <DependentUpon>Form_AddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_AddSaledBook.resx">
+      <DependentUpon>Form_AddSaledBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_CreateSaledInvoice.resx">
+      <DependentUpon>Form_CreateSaledInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_Customer.resx">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_DetailedSaledInvoice.resx">
+      <DependentUpon>Form_DetailedSaledInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_FindBook.resx">
+      <DependentUpon>Form_FindBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_ManageCustomer.resx">
+      <DependentUpon>Form_ManageCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_MainSalePerson.resx">
+      <DependentUpon>Form_MainSalePerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_ViewDetailedBook.resx">
+      <DependentUpon>Form_ViewDetailedBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_SALE\Form_ViewSaleInvoice.resx">
+      <DependentUpon>Form_ViewSaleInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ST\Form_AddImportBook.resx">
+      <DependentUpon>Form_AddImportBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ST\Form_DetailImportInvoice.resx">
+      <DependentUpon>Form_DetailImportInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ST\Form_Supplier.resx">
+      <DependentUpon>Form_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InHoaDon\Report_Import.resx">
+      <DependentUpon>Report_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InHoaDon\Report_Sale.resx">
+      <DependentUpon>Report_Sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old_GUI\Form_BookDetail_old02.resx">
+      <DependentUpon>Form_BookDetail_old02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old_GUI\Form_BookDetail_old.resx">
+      <DependentUpon>Form_BookDetail_old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_ManageBook.resx">
+      <DependentUpon>Form_ManageBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_ChangePassword.resx">
+      <DependentUpon>Form_ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ST\Form_CreateImportInvoice.resx">
+      <DependentUpon>Form_CreateImportInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old_GUI\Form_AddBook_old.resx">
+      <DependentUpon>Form_AddBook_old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ST\Form_ViewImportInvoice.resx">
+      <DependentUpon>Form_ViewImportInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI_ST\Form_MainStoreKeeper.resx">
+      <DependentUpon>Form_MainStoreKeeper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Import.rdlc" />
+    <EmbeddedResource Include="Report_Sale.rdlc" />
+    <None Include="DataSet_Import.xsc">
+      <DependentUpon>DataSet_Import.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_Import.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Import.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet_Import.xss">
+      <DependentUpon>DataSet_Import.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_Sale.xsc">
+      <DependentUpon>DataSet_Sale.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_Sale.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Sale.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet_Sale.xss">
+      <DependentUpon>DataSet_Sale.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Natural Switzerland Scenery Desktop Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TinhLang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clarisse-meyer-jKU2NneZAbI-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\freddy-castro-u3ajSXhZM_U-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackGround.jpg" />
+    <None Include="Resources\BackGround1.jpg" />
+    <Content Include="Resources\bar.jpg" />
+    <Content Include="Resources\bar1.jpg" />
+    <Content Include="Resources\bar2.jpg" />
+    <Content Include="Resources\cloud_in_night.jpg" />
+    <None Include="Resources\iconManageBook.png" />
+    <None Include="Resources\iconManageBook02.png" />
+    <None Include="Resources\iconCreateInvoice.png" />
+    <None Include="Resources\iconViewInvoice.png" />
+    <None Include="Resources\iconManageAccount.png" />
+    <None Include="Resources\cloud_in_night1.jpg" />
+    <None Include="Resources\iconViewSaleInvoice.png" />
+    <None Include="Resources\iconRevenue.png" />
+    <Content Include="Resources\Login.jpg" />
+    <Content Include="Resources\Login_2.jpg" />
+    <Content Include="Resources\Login_21.jpg" />
+    <None Include="Resources\manageCustomer.png" />
+    <Content Include="Resources\mua_thu_01.jpg" />
+    <Content Include="Resources\mua_thu_02.jpg" />
+    <None Include="Resources\Screenshot 2023-06-08 181632.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
